@@ -1,4 +1,4 @@
-# Desafio da semana #3
+# Desafio da semana #2
 ```js
 
 /* Crie uma função que receba dois argumentos e retorne a soma dos mesmos. */
