@@ -7,12 +7,12 @@ let isTruthy = function(valor) {
     return !!valor ? 'true' : 'false';
 }
 
-// Invoque a função criada acima, passando todos os tipos de valores `falsy`.
+/* Invoque a função criada acima, passando todos os tipos de valores `falsy`. */
 isTruthy(0); // false
 isTruthy(-0); // false
 isTruthy(''); // false
 
-/* Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
+/* Invoque a função criada acima passando como parâmetro 10 valores `truthy`. */
 isTruthy(1); // true
 isTruthy(2); // true
 isTruthy(3); // true
