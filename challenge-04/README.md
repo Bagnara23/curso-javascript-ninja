@@ -47,7 +47,7 @@ let carro = {
 }
 
 /* Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor passado por parâmetro. */
-let carro.mudarCor = function(color) {
+carro.mudarCor = function(color) {
     if(color != '')
         carro.cor = color;
 }
@@ -102,40 +102,40 @@ carro.addPessoas = function(qtd) {
 
 /* Agora vamos verificar algumas informações do carro. Para as respostas abaixo, utilize sempre o formato de invocação do método (ou chamada da propriedade), adicionando comentários _inline_ ao lado com o valor retornado, se o método retornar algum valor.
 
-Qual a cor atual do carro?
-*/
-?
+Qual a cor atual do carro? */
+carro.obterCor() // cinza
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudarCor("vermelho")
 
 // E agora, qual a cor do carro?
-?
+carro.obterCor() // vermelho
 
 // Mude a cor do carro para verde musgo.
-?
+carro.mudarCor("verde musgo")
 
 // E agora, qual a cor do carro?
-?
+carro.obterCor() // verde musgo
 
 // Qual a marca e modelo do carro?
-?
+carro.obterMarcaModelo() // Esse carro é um BMW 330
 
 // Adicione 2 pessoas no carro.
-?
+carro.addPessoas(2) // Já temos 2 pessoas no carro!
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.addPessoas(4) // O carro já está lotado! 1 ficaram sem carona!
 
 // Faça o carro encher.
-?
+carro.addPessoas(5) // O carro já está lotado! 5 ficaram sem carona!
 
 // Tire 4 pessoas do carro.
-?
+carro.quantidadePessoas = carro.quantidadePessoas - 4; // 1
 
 // Adicione 10 pessoas no carro.
-?
+carro.addPessoas(10) // Parâmetro incorreto, entre com uma quantidade valida!
 
 // Quantas pessoas temos no carro?
-?
+carro.quantidadePessoas // 1
+
 ```
