@@ -41,24 +41,27 @@ propriedades:
 - A função deve retornar o objeto referente ao livro passado por parâmetro.
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos os livros.
 */
-function book(livro) {
-    let informacoes = {
-        livro_a: {qtd_paginas: '', autor: '', editora: ''},
-        livro_b: {qtd_paginas: '', autor: '', editora: ''},
-        livro_c: {qtd_paginas: '', autor: '', editora: ''}
+function book(livroName) {
+    let allBooks = {
+        'segredo do ninja javascript': {qtd_paginas: 488, autor: 'John Resig & Bear Bibeault', editora: 'Novatec'},
+        'manga naruto': {qtd_paginas: 220, autor: 'Masashi Kishimoto', editora: 'Viz'},
+        'livro do cla das sombras': {qtd_paginas: 450, autor: 'Altier Macob', editora: 'Zucco'}
     }
-
-    return livroSelecionado;
+    
+    // allBooks.propriedade = (Com o ponto é possivel acessar diretamente a propriedade de um objeto).
+    // arrays em js podem ser compreendidos como objetos, tendo como propriedades seus indices.
+    
+    return !livroName ? allBooks : allBooks[livroName];
 }
 
 /* Usando a função criada acima, imprima o objeto com todos os livros. */
-// ?
+book() // Ok
 
 /* Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer, usando a frase: "O livro [NOME_DO_LIVRO] tem [X] páginas!" */
-// ?
+console.log("O livro Manga de Naruto tem " + book('manga naruto').qtd_paginas + " páginas."); // O livro Manga de Naruto tem 220 páginas.
 
 /* Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando a frase: "O autor do livro [NOME_DO_LIVRO] é [AUTOR]." */
-// ?
+console.log("O autor do livro do cla das sombras é " + book('livro do cla das sombras').autor + "."); // O autor do livro do cla das sombras é Altier Macob.
 
 /* Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando a frase: "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]." */
-// ?
+console.log("O livro segredo do ninja javascript foi publicado pela editora " + book('segredo do ninja javascript').editora + "."); // O livro segredo do ninja javascript foi publicado pela editora Novatec.
