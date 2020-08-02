@@ -54,6 +54,12 @@ while(cont < max) {
     cont++;
 }
 
+
+let num = 20;
+while(num <= 30) {
+    console.log(num++);
+}
+  
 /* Crie uma função chamada `convertToHex`, com as seguintes características:
     - A função recebe uma cor por parâmetro, do tipo string. Exemplo: "red";
     - Escolha 5 cores que serão convertidas do nome da cor para o seu equivalente hexadecimal (pode ser qualquer tom);
@@ -82,25 +88,25 @@ function convertToHex(nameColor) { // se atribuir o retorno a uma variavel é ne
     let color = '';
     switch(nameColor) {
         case 'vermelho':
-            color =  'O hexadecimal para a cor ' + nameColor + ' é #FF0000';
+            color = '#FF0000';
             break;
         case 'azul':
-            color =  'O hexadecimal para a cor ' + nameColor + ' é ##0000FF';
+            color = '##0000FF';
             break;
         case 'verde':
-            color =  'O hexadecimal para a cor ' + nameColor + ' é #00FF00';
+            color = '#00FF00';
             break;
         case 'amarelo':
-            color =  'O hexadecimal para a cor ' + nameColor + ' é #FFFF00';
+            color = '#FFFF00';
             break;
         case 'rosa':
-            color =  'O hexadecimal para a cor ' + nameColor + ' é #FF1493';
+            color = '#FF1493';
             break;
         default:
-            color =  'Não temos o equivalente hexadecimal para ' + nameColor + '.';
+            return  'Não temos o equivalente hexadecimal para ' + nameColor + '.';
     }
 
-    return color;
+    return 'O hexadecimal para a cor ' + nameColor + ' é ' + color;
 }
 
 /* Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima. */
