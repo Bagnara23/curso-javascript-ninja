@@ -1,11 +1,15 @@
 /* Declare uma variável chamada `sum` e atribua a ela uma função chamada `calculateSum`. A função deve receber dois parâmetros e retornar a soma desses parâmetros. */
-// ?
+let sum = function calculateSum(x, y) {
+  return (x+y);
+};
 
 /* Invoque a função criada acima, passando dois números que serão somados, e mostre o resultado no console, com a frase: "A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]." */
-// ?
+let x = 3;
+let y = 5;
+console.log('A soma de ' + x + ' e ' + y + ' é igual a ' + sum(x, y) + '.'); // A soma de 3 e 5 é igual a 8.
 
 /* Mostre no console o nome da função criada acima, com a frase:"O nome da função que faz a soma é [NOME DA FUNÇÃO]." */
-// ?
+console.log('O nome da função que faz a soma é ' + sum.name + '.'); // O nome da função que faz a soma é calculateSum.
 
 /* Crie uma função literal chamada `showName`. Essa função deve retornar o seu nome. */
 // ?
