@@ -28,7 +28,7 @@
   let counter = 0;
   for(let prop in person) {
     counter++;
-    console.log(prop);
+    console.log('The ' + prop + ' of person is ' + person[prop]);
   }
   console.log('> The person has ' + counter + ' properties');
 
@@ -42,14 +42,16 @@
     }
     
     return 'The person has more than 25 years old? ' + result;
+    // return person.age > age;
+    // return person.age > age ? true : false;
   }
 
   /* Faça um loop de 0 a 20, que adicione cada número como um item de um array chamado `numbers`.
   Se o contador for maior que 10, saia do loop. Mostre no console os números no array. */
   let numbers = [];
   for(let i = 0; i <= 20; i++) {
-    numbers[i] = i;
-    if(i == 10) {
+    numbers.push(i);
+    if(i >= 10) {
       break;
     }
   }
@@ -58,14 +60,15 @@
 
   /* Faça outro loop de 0 a 20, que adicione a um array chamado `numbers` (já criado acima, só precisa ser reiniciado) números de 0 a 20,
   inclusive esses. Se o número for ímpar, pular para o próximo número. Mostrar no console os números do array. */
-  let numbers = [];
-  let counter = 0;
+  numbers = []; // reinicia o array
+  // let counter = 0;
   for(let i = 0; i <= 20; i++) {
-    if(i % 2 == 0) {
-      numbers[counter] = i;
-      counter++
+    if(i % 2 === 0) {
+      // numbers[counter] = i;
+      // counter++
+      numbers.push(i); // Insere o termo no array.
     }
   }
-  console.log( 'Pares de 0 a 20 :'  + numbers);
+  console.log( 'Pares de 0 a 20: '  + numbers);
   
 }());
