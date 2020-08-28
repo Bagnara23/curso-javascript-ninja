@@ -25,16 +25,20 @@
   `name`: String
   `pages`: Number
   */
-  let book = {}
+  // let book = {}
   
-  book = { nome: 'Princípios de orientação a objetos com JS', pages: 127 };
-  books.push(book);
+  // book = { nome: 'Princípios de orientação a objetos com JS', pages: 127 };
+  // books.push(book);
   
-  book = { nome: 'Internet das Coisas', pages: 238 } 
-  books.push(book);
+  // book = { nome: 'Internet das Coisas', pages: 238 } 
+  // books.push(book);
   
-  book = { nome: 'Raspberry Pi - Descomplicando', pages: 224 } 
-  books.push(book);
+  // book = { nome: 'Raspberry Pi - Descomplicando', pages: 224 } 
+  // books.push(book);
+  
+  books.push({ nome: 'Princípios de orientação a objetos com JS', pages: 127 });
+  books.push({ nome: 'Internet das Coisas', pages: 238 });
+  books.push({ nome: 'Raspberry Pi - Descomplicando', pages: 224 });
 
   /* Mostre no console todos os livros. */ 
   console.log( '\nLista de livros: ' + books);
@@ -54,32 +58,35 @@
   }
 
   /* Converta os objetos que ficaram em `books` para strings. */
-  console.log( '\nLivros em formato string:' );
-  
-  for(let indice in books) {
-    books[indice] = Object.keys(books[indice]);
-    console.log(books[indice]);
-  }
+  let stringBooks = JSON.stringify( books );
 
   /* Mostre os livros nesse formato no console: */
+  console.log( '\n Livros em formato string: ' + stringBooks);
 
   /* Converta os livros novamente para objeto. */
-  console.log( '\nAgora os livros são objetos novamente:' );
+  let objBooks = JSON.parse( stringBooks );
+  console.log( '\n Agora os livros são objetos novamente' + objBooks);
 
   /* Mostre no console todas as propriedades e valores de todos os livros, no formato abaixo: "[PROPRIEDADE]: [VALOR]" */
+  for( let i = 0; i < Object.keys(books).length; i++) {
+    for(let prop in books[i]) {
+      console.log(prop + ': ' + books[i][prop]);
+    }
+  }
 
   /* Crie um array chamado `myName`. Cada item desse array deve ser uma letra do seu nome. Adicione seu nome completo no array. */
-  console.log( '\nMeu nome é:' );
+  let meuNome = 'Rodrigo Bagnara';
+  let myName = meuNome.split('')
+  console.log( '\n Meu nome é:' );
 
   /* Juntando todos os itens do array, mostre no console seu nome. */
-  // ?
+  console.log(myName.join(''));
 
-  console.log( '\nMeu nome invertido é:' );
 
   /* Ainda usando o objeto acima, mostre no console seu nome invertido. */
-  // ?
+  console.log( '\n Meu nome invertido é: ' + myName.reverse());
 
-  console.log( '\nAgora em ordem alfabética:' );
   /* Mostre todos os itens do array acima, odenados alfabéticamente. */
-  // ?
+  console.log( '\n Agora em ordem alfabética: ' + myName.sort());
+  
 }());
