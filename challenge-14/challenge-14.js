@@ -6,6 +6,7 @@
   Cada elemento será um objeto no formato: { number: [NUMBER] }
   Os números devem ser de 1 a 10. Mostre esse array no console. */
   console.log( 'Number Objects Array:' );
+  /*
   let numberObjects = [
     { 1: 'um' },
     { 2: 'dois' },
@@ -18,6 +19,11 @@
     { 9: 'nove' },
     { 10: 'dez'}
   ];
+  */
+  let numberObjects = [];
+  for(let i = 1; i <= 10; i++) {
+    numberObjects.push({ number: i});
+  }
   
   numberObjects
 
@@ -25,9 +31,8 @@
   números do array criado acima. Mostre esse novo array no console. */
   console.log( '\nJust Numbers:' );
   let justNumbers = [];
-  
-  numberObjects.forEach(function(item, indice) {
-    justNumbers[indice] = Object.keys(numberObjects[indice]).toString();
+  justNumbers = numberObjects.map(function(item) {
+    return item.number;
   });
   
   justNumbers
@@ -49,7 +54,7 @@
   - Multiplicar o resultado pelo valor atual.
   O cálculo deve começar com zero. Mostre o resultado no console. */
   console.log( '\nOperation:' );
-  let operation = justMod2Or3.reduce(function(valorAcomulado, valorAtual, indice, array) {
+  let operation = justMod2Or3.reduce(function(valorAcomulado, valorAtual) {
     return (valorAcomulado + 1) * valorAtual;
   }, 0);
   
@@ -70,12 +75,9 @@
   letra "P" antes de cada sílaba de uma palavra falada, como se você estivesse falando em código xD */
   console.log( '\nSeu nome na língua do "P":' );
   let name = ['Ro', 'dri', 'go'];
-  let operation3 = name.reduce(function(valorAcomulado, valorAtual, indice, array) {
-    if(valorAcomulado == 0) {
-        valorAcomulado = '';
-    }
+  let operation3 = name.reduce(function(valorAcomulado, valorAtual) {
     return valorAcomulado + ' P' + valorAtual;
-  }, 0);
+  }, '');
   
   operation3
   
@@ -83,34 +85,47 @@
   /* Crie uma variável chamada `inversedName`, que reduzirá o array em uma string
   e atribuirá o seu nome invertido (usando o array criado acima). */
   console.log( '\nInversed Name:' );
-  let inversedName = name.reduce(function(valorAcomulado, valorAtual, indice, array) {
-    if(valorAcomulado == 0) {
-        valorAcomulado = '';
-    }
+  let inversedName = name.reduceRight(function(valorAcomulado, valorAtual) {
     return valorAcomulado + valorAtual;
-  }, 0);
+  }, '');
   
-  inversedName.reverse();
+  inversedName;
+  
+  // let inversedName = name.reverse().join('');
   
 
   /* Mostre no console o array `numberObjects`. */
   console.log( '\nNumber objects' );
+  numberObjects
   
-
   /* Verifique se existem em algum índice de numberObjects um objeto ìgual a { number: 2 }.
   Se houver, mostre no console: "Existe um objeto { number: 2 } em numberObjects!"
   Senão, mostre a frase: "Não existe um objeto { number: 2 } em numberObjects :("
   Consegue prever o resultado? Deixe uma mensagem no console tentando explicar o que acontece ;) */
   console.log( '\nExiste um { number: 2 } em numberObjects?' );
   
+  if(numberObjects.indexOf({ number: 2 }) > -1) {  // Nenhum objeto é igual ao outro (devido a sua locação na memória).
+    console.log("Existe um objeto { number: 2 } em numberObjects!");
+  } else {
+    console.log("Não existe um objeto { number: 2 } em numberObjects :(");
+  }
 
   /* Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
   será que obtemos um resultado diferente? Faça a busca a partir do índice 2. */
   console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
   
+  if(numberObjects.lastIndexOf({ number: 2 }, 2) > -1) {  // Nenhum objeto é igual ao outro (devido a sua locação na memória).
+    console.log("Existe um objeto { number: 2 } em numberObjects!");
+  } else {
+    console.log("Não existe um objeto { number: 2 } em numberObjects :(");
+  }
+  
+  
 
   /* Verifique se `justMod2Or3` é um array. Se for, mostre-o no console, no formato de String. */
   console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
-  
+  if(Array.isArray(justMod2Or3)) {
+     console.log(justMod2Or3.toString());
+  }
   
 }());
