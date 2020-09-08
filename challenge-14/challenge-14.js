@@ -6,16 +6,42 @@
   Cada elemento será um objeto no formato: { number: [NUMBER] }
   Os números devem ser de 1 a 10. Mostre esse array no console. */
   console.log( 'Number Objects Array:' );
+  let numberObjects = [
+    { 1: 'um' },
+    { 2: 'dois' },
+    { 3: 'três' },
+    { 4: 'quatro' },
+    { 5: 'cinco' },
+    { 6: 'seis' },
+    { 7: 'sete' },
+    { 8: 'oito' },
+    { 9: 'nove' },
+    { 10: 'dez'}
+  ];
   
+  numberObjects
 
   /* Crie um array chamado `justNumbers`, que terá como elementos somente os
   números do array criado acima. Mostre esse novo array no console. */
   console.log( '\nJust Numbers:' );
+  let justNumbers = [];
   
-
+  numberObjects.forEach(function(item, indice) {
+    justNumbers[indice] = Object.keys(numberObjects[indice]).toString();
+  });
+  
+  justNumbers
+  
   /* Crie um novo array chamado `justMod2Or3`, que receberá do array criado acima
   somente os números que forem divisíveis por 2 ou 3. Mostre esse novo array no console. */
   console.log( '\nJust module of division by 2 or 3:' );
+  let justMod2Or3 = [];
+  
+  justMod2Or3 = justNumbers.filter(function(item) {
+    return (item % 2 === 0 || item % 3 === 0);
+  });
+
+  console.log(justMod2Or3); // ["2", "3", "4", "6", "8", "9", "10"]
   
 
   /* Declare uma variável chamada operation que receba, do array criado acima, um valor reduzido pela seguinte operação:
@@ -23,23 +49,48 @@
   - Multiplicar o resultado pelo valor atual.
   O cálculo deve começar com zero. Mostre o resultado no console. */
   console.log( '\nOperation:' );
+  let operation = justMod2Or3.reduce(function(valorAcomulado, valorAtual, indice, array) {
+    return (valorAcomulado + 1) * valorAtual;
+  }, 0);
   
+  operation
 
   /* Faça o mesmo cálculo passado acima, mas começando do último item para o primeiro.
   O nome da variável deve ser operation2. Mostre o resultado no console. */
   console.log( '\nOperation 2:' );
+  let operation2 = justMod2Or3.reduceRight(function(valorAcomulado, valorAtual, indice, array) {
+    return (valorAcomulado + 1) * valorAtual;
+  }, 0);
   
+  operation2
 
   /* Crie um array chamado `name`. Cada elemento desse array deve ser uma sílaba do seu nome.
   Vamos reduzir esse array, juntando todas as sílabas, mas usando a "língua do P".
   PS.: Lembra da língua do "P"? Não? A língua do "P" é uma brincadeira infantil, onde você coloca a 
   letra "P" antes de cada sílaba de uma palavra falada, como se você estivesse falando em código xD */
   console.log( '\nSeu nome na língua do "P":' );
+  let name = ['Ro', 'dri', 'go'];
+  let operation3 = name.reduce(function(valorAcomulado, valorAtual, indice, array) {
+    if(valorAcomulado == 0) {
+        valorAcomulado = '';
+    }
+    return valorAcomulado + ' P' + valorAtual;
+  }, 0);
+  
+  operation3
   
 
   /* Crie uma variável chamada `inversedName`, que reduzirá o array em uma string
   e atribuirá o seu nome invertido (usando o array criado acima). */
   console.log( '\nInversed Name:' );
+  let inversedName = name.reduce(function(valorAcomulado, valorAtual, indice, array) {
+    if(valorAcomulado == 0) {
+        valorAcomulado = '';
+    }
+    return valorAcomulado + valorAtual;
+  }, 0);
+  
+  inversedName.reverse();
   
 
   /* Mostre no console o array `numberObjects`. */
