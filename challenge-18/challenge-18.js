@@ -12,13 +12,30 @@
   - "101.123-131x32"
   */
   console.log( 'Limpando CPFs:' );
-
+  function cleanCPF(cpf) {
+    return cpf.replace(/\D/g, '');
+  }
+  
+  cleanCPF('049-214 3421-1'); // 04921434211
+  cleanCPF('210.458.522-05'); // 21045852205
+  cleanCPF('735 500 794 - 22'); // 73550079422
+  cleanCPF('101.123-131x32'); // 10112313132
 
   /* Usando os CPFs limpos acima, deixe-os com a formatação correta de CPF.
   Ex.: "999.999.999-99"
   Mostre o resultado no console. */
   console.log( '\nFormatando CPFs corretamente:' );
+  let cpfs = ["049-214 3421-1", "210.458.522-05", "735 500 794 - 22", "101.123-131x32"];
 
+  cpfs.forEach(function(cpf) {
+    // console.log(cleanCPF(cpf).replace(/(\d\d\d)(\d\d\d)(\d\d\d)(\d\d)/, '$1.$2.$3-$4'));
+    // console.log(cleanCPF(cpf).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'));
+    console.log(cleanCPF(cpf).replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, 
+      function(regex, arg1, arg2, arg3, arg4) { return arg1 + '.' + arg2 + '.' + arg3 + '-' + arg4; }
+    ));
+  })
+  
+  *** Ver método de varre array
 
   /* Crie uma expressão regular que faça match com as palavras "junho" ou "julho", usando o mínimo de caracteres possíveis na regex.
   Para garantir que a regex funciona, teste-a usando o método match. Se houver o match, o método retorna um array com os matches.
