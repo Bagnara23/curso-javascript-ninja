@@ -43,21 +43,25 @@
   "Os meses de janeiro, junho e julho começam com a letra j."
   O resultado deve ser: ["junho", "julho"] */
   console.log( '\nMatch com as palavras "junho" ou "julho" para a frase "Os meses de janeiro, junho e julho começam com a letra j.":' );
-
+  let text = 'Os meses de janeiro, junho e julho começam com a letra j.';
+  console.log(text.match( /junho|julho/g ));
+  console.log(text.match( /ju[n,l]ho/g ));
 
   /* Crie uma expressão regular que faça o match com a abertura de uma tag HTML qualquer.
   Ex.: "<div>", "<section>", "<blockquote>".
   Use o método match e faça o teste com a marcação abaixo: "<div><section><blockquote>Texto <img /></blockquote></section></div>"
   O resultado deve ser: ["<div>", "<section>", "<blockquote>"] */
   console.log( '\nMatch com a abertura de uma tag HTML:' );
-
+  let text = '<div><section><blockquote>Texto <img /></blockquote></section></div>';
+  console.log(text.match( /<\w+>/g ));
 
   /* Crie uma expressão regular que faça o match com uma tag HTML vazia, casando com a abertura e fechamento da tag.
   Ex.: "<div></div>", "<section></section>", "<blockquote></blockquote>".
   Use o método match e faça o teste com a marcação abaixo: "<div><ul><li></li><li></li><li><span></span></li></ul></div>"
   O resultado deve ser: ["<li></li>", "<li></li>", "<span></span>"] */
   console.log( '\nMatch com tags HTML vazias (abertura e fechamento da tag):' );
-
+  let text = '<div><ul><li></li><li></li><li><span></span></li></ul></div>';
+  console.log(text.match( /<\w+><\/\w+>/g ));
 
   /* Vamos complicar um pouco agora :D
 
