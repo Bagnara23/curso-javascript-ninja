@@ -65,8 +65,8 @@
 
   /* Vamos complicar um pouco agora :D
 
-  Crie uma expressão regular que faça o match com um texto existente dentro de
-  uma tag HTML. O texto deve ser capturado e substituído por: 'O texto dentro da tag "[NOME DA TAG]" é "[TEXTO]"'
+  Crie uma expressão regular que faça o match com um texto existente dentro de uma tag HTML. 
+  O texto deve ser capturado e substituído por: 'O texto dentro da tag "[NOME DA TAG]" é "[TEXTO]"'
 
   Use a marcação abaixo para fazer o replace: "<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>"
 
@@ -81,5 +81,8 @@
   Uma dica: faça o match aos poucos. Para facilitar o teste, use o site https://regex101.com/#javascript e verifique se as capturas estão
   corretas, para depois aplicar no código ;) */
   console.log( '\nFazer replace dos textos das tags:' );
+  let html = "<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>";
+  let htmlReplace = html.replace(/<(\w+)>([^<]+)<\/\w+>/g, '<$1> O texto dentro da tag "$1" é "$2" </$1>\n')
+  console.log(htmlReplace);
 
 }());
