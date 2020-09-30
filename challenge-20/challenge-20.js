@@ -1,30 +1,41 @@
 (function(){
 
-  /*
-  1. Envolva todo o conteúdo desse desafio em uma IIFE.
-  2. Adicione a diretiva 'use strict';
-  3. Passe por parâmetro para a IIFE os objetos window e document.
-  4. Dessa vez não é necessário criar um HTML. Ele já existe, e vamos utilizar
-  a marcação criada nele para fazer nosso desafio ;)
-
-  O HTML NÃO PODE ser alterado! */
+ // 1. Envolva todo o conteúdo desse desafio em uma IIFE.
+ // 2. Adicione a diretiva 'use strict';
+ 'use strict';
+ // 3. Passe por parâmetro para a IIFE os objetos window e document.
+ // 4. Dessa vez não é necessário criar um HTML. Ele já existe, e vamos utilizar
+ // a marcação criada nele para fazer nosso desafio ;) O HTML NÃO PODE ser alterado!
 
   /* Ao carregar a página, pergunte ao usuário "Qual o seu nome?". Atribua o resultado à uma variável chamada `username`.
   Se o usuário não digitar um nome, `username` deve receber "Desconhecido".
   Com a resposta, mostre um alert com a mensagem "Bem vindo [USERNAME]!" */
+  let username = prompt('Qual é seu nome?');
+  if(username) {
+     console.log('Seja bem vindo ' + username);
+  } else {
+     console.log('Usuário desconhecido');
+  }
   
 
   /* Agora, pergunte ao usuário "Qual o seu e-mail?", atribuindo o resultado à uma variável chamada `email`. */
+  let email = prompt('Qual o seu e-mail?');
 
   /* Selecione o input de "Nome", atribuindo-o à uma variável chamada `$inputUsername`. */
+  let $inputUsername = document.querySelector('input[type="text"]'); // Como o campo não possui id, deve ser pego pelo seu type.
 
   /* Selecione o input de "Email", atribuindo-o à uma variável chamada `$inputEmail`. */
+  let $inputEmail = document.querySelector('input[type="email"]'); // Como o campo não possui id, deve ser pego pelo seu type.
 
   /* Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada `$message`. */
+  let $message = document.querySelector('textarea'); // Como o campo não possui id, deve ser pego pelo seu type.
 
   /* Selecione o botão de envio do formulário, atribuindo-o à uma variável chamada `$button`. */
+  let $button = document.querySelector('button'); // Aqui as informações do elemento são pegas pela tag html.
 
   /* Preencha os campos de "Nome" e "Email" que estão no documento com os valores entrados pelo usuário. */
+  $inputUsername.value = username;
+  $inputEmail.value = email;
 
   /* Adicione um listener de evento de click ao botão que faça o seguinte:
   1. Verificar se todos os campos estão preenchidos:
@@ -41,6 +52,26 @@
   Se for confirmado, mostre um alerta com a mensagem: "Enviado com sucesso!"
   Caso contrário, mostre um alerta com a mensagem: "Não enviado."
   */
+  
+  $button.addEventListener('click', function(event){
+    event.preventDefault();
+    
+    if(!$inputUsername.value)
+       return alert('Preencha o nome do usuário!');
+    if(!$inputEmail.value)
+       return alert('Preencha o e-mail do usuário!');
+    if(!$message)
+       return alert('Preencha a mensagem!');
+    if(!isValidEmail($inputEmail.value))
+       return alert('Entre com um e-mail válido!');
+    
+    if(confirm('Tem certeza que deseja enviar o formulário?')) {
+      return alert('Enviado com sucesso!');
+    } else {
+      return alert('Não enviado.');
+    }
+    
+  }, false);
 
   /* Crie uma função chamada `isValidEmail`, que será usada na validação do envio do formulário.
   Essa função deve receber o e-mail por parâmetro e verificar se é um e-mail válido.
@@ -61,5 +92,9 @@
       - "rita-marica@titica.a.b"
       - "agua_@evida.br.com"
   */
+  
+  function isValidEmail(email) {
+    return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email);
+  }
   
 }());
